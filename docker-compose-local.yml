@@ -1,0 +1,60 @@
+version: "3.1"
+services:
+
+    mailhog:
+      image: mailhog/mailhog:latest
+      container_name: rehegoo-mailhog
+      ports:
+        - "8025:8025"
+
+    mysql:
+      image: mysql:5.7
+      container_name: rehegoo-mysql
+      command: --max_allowed_packet=1000000000 --net_buffer_length=1000000
+      volumes:
+        - db_data:/var/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=secret
+        - MYSQL_DATABASE=homestread
+        - MYSQL_USER=homestread
+        - MYSQL_PASSWORD=secret
+      ports:
+        - "3306:3306"
+
+    redis:
+      image: redis:5.0-rc-alpine
+      container_name: rehegoo-redis
+      command: --requirepass 12345
+
+    webserver:
+      image: nginx
+      container_name: rehegoo-webserver
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./docker/local/nginx/vh.conf:/etc/nginx/conf.d/vh.conf
+      ports:
+        - "80:80"
+      depends_on:
+        - php-fpm
+
+    php-fpm:
+      build:
+        context: .
+        dockerfile: ./docker/local/php-fpm/Dockerfile
+      container_name: rehegoo-php-fpm
+      working_dir: /application
+      environment:
+        -MYSQL_HOST=mysql
+        -MYSQL_PORT=3306
+      volumes:
+        - .:/application
+        - ./docker/local/php-fpm/php.ini:/usr/local/etc/php/conf.d/99-overrides.ini
+        - ./docker/local/php-fpm/supervisor-workers.conf:/etc/supervisor/conf.d/supervisor-workers.conf
+      command: 
+        - ./docker/local/php-fpm/start.sh
+      depends_on:
+        - mysql
+
+volumes:
+  db_data:
