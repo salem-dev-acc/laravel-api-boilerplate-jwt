@@ -9,6 +9,7 @@ It is built on top of three big guys:
 * Dingo API - [dingo/api](https://github.com/dingo/api)
 * Laravel-CORS [barryvdh/laravel-cors](http://github.com/barryvdh/laravel-cors)
 * Swagger [darkaonline/l5-swagger](https://github.com/DarkaOnLine/L5-Swagger)
+* Mail Local Driver [mailhog/mailhog](https://github.com/mailhog/MailHog)
 
 What I made is really simple: an integration of these three packages and a setup of some authentication and credentials recovery methods.
 
