@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         bootstrap="bootstrap/autoload.php"
+         bootstrap="vendor/autoload.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -9,24 +9,26 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Application Test Suite">
-            <directory suffix="Test.php">./tests</directory>
+        <testsuite name="Functional">
+            <directory suffix="Test.php">./tests/Function</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
-            <exclude>
-                <file>./app/Http/routes.php</file>
-            </exclude>
         </whitelist>
     </filter>
     <php>
         <env name="APP_ENV" value="testing"/>
-        <env name="DB_DATABASE" value="homestead_test"/>
+        <env name="MAIL_DRIVER" value="array"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
-        <env name="MAIL_DRIVER" value="log"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="FILESYSTEM_DRIVER" value="test"/>
+        <env name="MAIL_INTERCEPT" value="false"/>
     </php>
+    <logging>
+        <log type="coverage-html" target="./storage/test-report" lowUpperBound="50" highLowerBound="80" />
+    </logging>
 </phpunit>
