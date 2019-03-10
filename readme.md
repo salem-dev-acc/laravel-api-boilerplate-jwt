@@ -12,24 +12,6 @@ It is built on top of three big guys:
 
 What I made is really simple: an integration of these three packages and a setup of some authentication and credentials recovery methods.
 
-## Installation
-
-1. run `composer create-project francescomalatesta/laravel-api-boilerplate-jwt myNextProject`;
-2. have a coffee, nothing to do here;
-
-Once the project creation procedure will be completed, run the `php artisan migrate` command to install the required tables.
-
-## Usage
-
-I wrote a couple of articles on this project that explain how to write an entire sample application with this boilerplate. They cover the older version of this boilerplate, but all the concepts are the same. You can find them on Sitepoint:
-
-Just be aware that some options in the `config/boilerplate.php` file are changed, so take a look to it.
-
-* [How to Build an API-Only JWT-Powered Laravel App](https://www.sitepoint.com/how-to-build-an-api-only-jwt-powered-laravel-app/)
-* [How to Consume Laravel API with AngularJS](https://www.sitepoint.com/how-to-consume-laravel-api-with-angularjs/)
-
-**WARNING:** the articles are old and Laravel 5.1 related. Just use them as "inspiration". Even without updated tutorials, they should be enough. 
-
 ## Main Features
 
 ### Ready-To-Use Authentication Controllers
@@ -103,17 +85,10 @@ If you want to enable CORS for a specific route or routes group, you just have t
 
 Thanks to the _barryvdh/laravel-cors_ package, you can handle CORS easily. Just check <a href="https://github.com/barryvdh/laravel-cors" target="_blank">the docs at this page</a> for more info.
 
-## Tests
+## Tests 
 
-If you want to contribute to this project, feel free to do it and open a PR. However, make sure you have tests for what you implement.
+Tests are performed with using sqlite database driver. In order to customize settings make changes to phpunit.xml file.
 
-In order to run tests:
+To run tests:
 
-* create a `homestead_test` database on your machine;
 * run `vendor/bin/phpunit`;
-
-If you want to specify a different name for the test database, don't forget to change the value in the `phpunix.xml` file.
-
-## Feedback
-
-I currently made this project for personal purposes. I decided to share it here to help anyone with the same needs. If you have any feedback to improve it, feel free to make a suggestion, or open a PR!
