@@ -3,13 +3,13 @@ services:
 
     mailhog:
       image: mailhog/mailhog:latest
-      container_name: rehegoo-mailhog
+      container_name: project-mailhog
       ports:
         - "8025:8025"
 
     mysql:
       image: mysql:5.7
-      container_name: rehegoo-mysql
+      container_name: project-mysql
       command: --max_allowed_packet=1000000000 --net_buffer_length=1000000
       volumes:
         - db_data:/var/lib/mysql
@@ -23,12 +23,12 @@ services:
 
     redis:
       image: redis:5.0-rc-alpine
-      container_name: rehegoo-redis
+      container_name: project-redis
       command: --requirepass 12345
 
     webserver:
       image: nginx
-      container_name: rehegoo-webserver
+      container_name: project-webserver
       working_dir: /application
       volumes:
         - .:/application
@@ -42,7 +42,7 @@ services:
       build:
         context: .
         dockerfile: ./docker/local/php-fpm/Dockerfile
-      container_name: rehegoo-php-fpm
+      container_name: project-php-fpm
       working_dir: /application
       environment:
         -MYSQL_HOST=mysql

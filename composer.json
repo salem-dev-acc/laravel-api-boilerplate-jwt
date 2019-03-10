@@ -20,7 +20,9 @@
         "nunomaduro/collision": "^2.0",
         "phpunit/phpunit": "^7.0",
         "darkaonline/l5-swagger:5.8.*",
-        "barryvdh/laravel-debugbar": "3.2.0"
+        "barryvdh/laravel-debugbar": "3.2.0",
+        "nunomaduro/larastan": "0.2.12",
+        "squizlabs/php_codesniffer": "3.3.2"
     },
     "autoload": {
         "classmap": [

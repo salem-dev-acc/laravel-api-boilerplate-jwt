@@ -104,5 +104,4 @@ It moves PHP closer to compiled languages in the sense that the correctness of e
 
 * run `vendor/bin/phpstan analyse -- app`
 * run `vendor/squizlabs/php_codesniffer/bin/phpcs -p --standard=PSR2 --colors app/`
-or
-* run `make lint`
+* or simply run `make lint`
