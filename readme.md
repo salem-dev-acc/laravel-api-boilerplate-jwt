@@ -94,3 +94,15 @@ Tests are performed with using sqlite database driver. In order to customize set
 To run tests:
 
 * run `vendor/bin/phpunit`;
+
+## Code styling
+
+Tools focuses on finding errors in your code without actually running it.
+
+It catches whole classes of bugs even before you write tests for the code.
+It moves PHP closer to compiled languages in the sense that the correctness of each line of the code can be checked before you run the actual line.
+
+* run `vendor/bin/phpstan analyse -- app`
+* run `vendor/squizlabs/php_codesniffer/bin/phpcs -p --standard=PSR2 --colors app/`
+or
+* run `make lint`
