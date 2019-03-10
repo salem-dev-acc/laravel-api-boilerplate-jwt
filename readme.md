@@ -10,6 +10,7 @@ It is built on top of three big guys:
 * Laravel-CORS [barryvdh/laravel-cors](http://github.com/barryvdh/laravel-cors)
 * Swagger [darkaonline/l5-swagger](https://github.com/DarkaOnLine/L5-Swagger)
 * Mail Local Driver [mailhog/mailhog](https://github.com/mailhog/MailHog)
+* Debugbar [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
 
 What I made is really simple: an integration of these three packages and a setup of some authentication and credentials recovery methods.
 

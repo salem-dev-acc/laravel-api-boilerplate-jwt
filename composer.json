@@ -19,7 +19,8 @@
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
         "phpunit/phpunit": "^7.0",
-        "darkaonline/l5-swagger:5.8.*"
+        "darkaonline/l5-swagger:5.8.*",
+        "barryvdh/laravel-debugbar": "3.2.0"
     },
     "autoload": {
         "classmap": [
