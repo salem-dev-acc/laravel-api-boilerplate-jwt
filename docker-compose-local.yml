@@ -19,7 +19,7 @@ services:
         - MYSQL_USER=homestread
         - MYSQL_PASSWORD=secret
       ports:
-        - "3306:3306"
+        - "3307:3306"
 
     redis:
       image: redis:5.0-rc-alpine
@@ -34,7 +34,7 @@ services:
         - .:/application
         - ./docker/local/nginx/vh.conf:/etc/nginx/conf.d/vh.conf
       ports:
-        - "80:80"
+        - "8000:80"
       depends_on:
         - php-fpm
 
@@ -45,8 +45,8 @@ services:
       container_name: project-php-fpm
       working_dir: /application
       environment:
-        -MYSQL_HOST=mysql
-        -MYSQL_PORT=3306
+        - MYSQL_HOST=mysql
+        - MYSQL_PORT=3306
       volumes:
         - .:/application
         - ./docker/local/php-fpm/php.ini:/usr/local/etc/php/conf.d/99-overrides.ini
